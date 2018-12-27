@@ -9,6 +9,10 @@
 button {
   width:90px;
   height: 60px;
+  display: inline-block;
+  vertical-align: top;
+  color: antiquewhite;
+  font-size: 2em;
 }
 .doubleWide {
   width: 180px;
@@ -30,5 +34,19 @@ button {
   background-color: darkred;
   color: white;
   font-weight: bold;
+  font-size: 2.5em;
   
+}
+.green {
+  background-color: lime;
+  color: white;
+  font-weight: bold;
+  font-size: 4em;
+}
+.gray {
+  background-color: gray;
+}
+.lightgray {
+  background-color: lightgray;
+  color: #333;
 }
