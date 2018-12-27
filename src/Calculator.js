@@ -110,12 +110,25 @@ class Calculator extends Component {
       
     }
   }
-  handleDecimalClick(op) {
-    this.setState({
-      decimal: op.target.value
-    })
+  handleDecimalClick() {
+    if (this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*"){
+      this.setState({
+        formula: this.state.formula + "0.",
+        currentVal: "0."
+      })
+    } else if (this.state.formula.slice(-1) === ".") {
+      this.setState({
+        formula: this.state.formula,
+        currentVal: this.state.currentVal
+      })
+    } else {
+      this.setState({
+        formula: this.state.formula + ".",
+        currentVal: this.state.currentVal + "."
+      })
+    }
   }
-  handleEqualClick(op) {
+  handleEqualClick() {
     if ((this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*") && this.state.formula.length > 1) {
       
       let pom = eval(this.state.formula.slice(0,-1)).toString();
