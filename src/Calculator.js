@@ -108,12 +108,6 @@ class Calculator extends Component {
       break;
       
     }
-
-
-   
-    this.setState({
-      operator: op.target.value
-    })
   }
   handleDecimalClick(op) {
     this.setState({
@@ -121,9 +115,19 @@ class Calculator extends Component {
     })
   }
   handleEqualClick(op) {
-    this.setState({
-      currentVal: "rezultat"
-    })
+    if (this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*") {
+      this.setState({
+        formula: eval(this.state.formula.slice(0,-1)),
+        currentVal: this.state.formula
+      })
+
+    } else {
+      this.setState({
+        formula: eval(this.state.formula),
+        currentVal: this.state.formula
+      })
+
+    }
   }
   
 
