@@ -9,16 +9,35 @@ class Calculator extends Component {
     super(props);
     this.state = {
       currentVal: "0",
-      formula: "0"
+      formula: "0",
+      clicked: ""
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.hadleClear = this.hadleClear.bind(this);
 
   }
+  handleClick(value) {
+    this.setState({clicked: value.target.value})
+  }
+  hadleClear(value) {
+    this.setState({
+      clicked: "",
+      currentVal: "0",
+      formula: "0"
+    })
+  }
+
+
+
+
+
   render() {
     return (
       <div className="calculator">
         <Display formula={this.state.formula}/>
         <BottomDisplay currentVal={this.state.currentVal}/>
-        <Buttons />
+        <Buttons numbers={this.handleClick}
+        clear={this.hadleClear} />
 
 
         
