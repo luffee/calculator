@@ -116,15 +116,17 @@ class Calculator extends Component {
   }
   handleEqualClick(op) {
     if (this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*") {
+      let pom = eval(this.state.formula.slice(0,-1));
       this.setState({
-        formula: eval(this.state.formula.slice(0,-1)),
-        currentVal: this.state.formula
+        formula: pom,
+        currentVal: pom
       })
 
     } else {
+      let pom = eval(this.state.formula);
       this.setState({
-        formula: eval(this.state.formula),
-        currentVal: this.state.formula
+        formula: pom,
+        currentVal: pom
       })
 
     }
