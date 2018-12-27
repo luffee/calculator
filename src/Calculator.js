@@ -26,12 +26,12 @@ class Calculator extends Component {
     if (!this.state.formula) {
       this.setState({
         formula: num.target.value,
-        clicked: num.target.value,
+        currentVal: num.target.value,
       })
 
     } else{
     this.setState({
-      clicked: num.target.value,
+      currentVal: this.state.currentVal + num.target.value,
       formula: this.state.formula + num.target.value
 
     })
@@ -48,6 +48,69 @@ class Calculator extends Component {
     })
   }
   handleOperatorClick(op) {
+    // eslint-disable-next-line default-case
+    switch (op.target.value) {
+      case "+": 
+      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+        
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula.slice(0,-1) + op.target.value
+        });
+      } else {
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula + op.target.value
+        })
+      }
+      break;
+      case "-": 
+      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "*" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+        
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula.slice(0,-1) + op.target.value
+        });
+      } else {
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula + op.target.value
+        })
+      }
+      break;
+      case "x": 
+      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+        
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula.slice(0,-1) + "*"
+        });
+      } else {
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula + "*"
+        })
+      }
+      break;
+      case "/": 
+      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+        
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula.slice(0,-1) + op.target.value
+        });
+      } else {
+        this.setState({
+          currentVal: op.target.value,
+          formula: this.state.formula + op.target.value
+        })
+      }
+      break;
+      
+    }
+
+
+   
     this.setState({
       operator: op.target.value
     })
