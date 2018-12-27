@@ -9,7 +9,7 @@ class Calculator extends Component {
     super(props);
     this.state = {
       currentVal: "0",
-      formula: "0",
+      formula: "",
       clicked: "",
       operator: "",
       decimal: ""
@@ -23,15 +23,25 @@ class Calculator extends Component {
 
   }
   handleNumberClick(num) {
+    if (!this.state.formula) {
+      this.setState({
+        formula: num.target.value,
+        clicked: num.target.value,
+      })
+
+    } else{
     this.setState({
-      clicked: num.target.value
+      clicked: num.target.value,
+      formula: this.state.formula + num.target.value
+
     })
+  }
   }
   handleClear() {
     this.setState({
       clicked: "",
       currentVal: "0",
-      formula: "0",
+      formula: "",
       operator: "",
       decimal: ""
 
