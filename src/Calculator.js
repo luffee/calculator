@@ -3,6 +3,7 @@ import './App.css';
 import Display from "./Display";
 import BottomDisplay from './BottomDisplay';
 import Buttons from './Buttons'
+import PropTypes from 'prop-types'
 
 class Calculator extends Component {
   constructor(props){
@@ -51,7 +52,7 @@ class Calculator extends Component {
     // eslint-disable-next-line default-case
     switch (op.target.value) {
       case "+": 
-      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
         
         this.setState({
           currentVal: op.target.value,
@@ -65,7 +66,7 @@ class Calculator extends Component {
       }
       break;
       case "-": 
-      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "*" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
         
         this.setState({
           currentVal: op.target.value,
@@ -79,7 +80,7 @@ class Calculator extends Component {
       }
       break;
       case "x": 
-      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
         
         this.setState({
           currentVal: op.target.value,
@@ -93,7 +94,7 @@ class Calculator extends Component {
       }
       break;
       case "/": 
-      if (this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
         
         this.setState({
           currentVal: op.target.value,
@@ -115,15 +116,25 @@ class Calculator extends Component {
     })
   }
   handleEqualClick(op) {
-    if (this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*") {
-      let pom = eval(this.state.formula.slice(0,-1));
+    if ((this.state.formula.slice(-1) === "+" || this.state.formula.slice(-1) === "-" || this.state.formula.slice(-1) === "/" || this.state.formula.slice(-1) === "*") && this.state.formula.length > 1) {
+      
+      let pom = eval(this.state.formula.slice(0,-1)).toString();
+      
       this.setState({
         formula: pom,
         currentVal: pom
       })
 
-    } else {
-      let pom = eval(this.state.formula);
+    } else if(this.state.formula.length === 1) {
+      this.setState({
+        formula: this.state.formula,
+        currentVal: this.state.currentVal
+      })
+
+
+    }
+      else {
+      let pom = eval(this.state.formula).toString();
       this.setState({
         formula: pom,
         currentVal: pom
@@ -147,6 +158,10 @@ class Calculator extends Component {
       </div>
     );
   }
+}
+
+Calculator.propTypes = {
+  formula: PropTypes.number.isRequired
 }
 
 export default Calculator;

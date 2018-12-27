@@ -19,6 +19,9 @@ button {
   font-size: 2em;
   font-family: 'Orbitron', sans-serif;
 }
+button:hover {
+  border: 2px dashed black;
+}
 .doubleWide {
   width: 180px;
 }
