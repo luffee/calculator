@@ -10,34 +10,58 @@ class Calculator extends Component {
     this.state = {
       currentVal: "0",
       formula: "0",
-      clicked: ""
+      clicked: "",
+      operator: "",
+      decimal: ""
+
     }
-    this.handleClick = this.handleClick.bind(this);
-    this.hadleClear = this.hadleClear.bind(this);
+    this.handleNumberClick = this.handleNumberClick.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleOperatorClick = this.handleOperatorClick.bind(this);
+    this.handleDecimalClick = this.handleDecimalClick.bind(this);
+    this.handleEqualClick = this.handleEqualClick.bind(this);
 
   }
-  handleClick(value) {
-    this.setState({clicked: value.target.value})
+  handleNumberClick(num) {
+    this.setState({
+      clicked: num.target.value
+    })
   }
-  hadleClear(value) {
+  handleClear() {
     this.setState({
       clicked: "",
       currentVal: "0",
-      formula: "0"
+      formula: "0",
+      operator: "",
+      decimal: ""
+
     })
   }
-
-
-
-
+  handleOperatorClick(op) {
+    this.setState({
+      operator: op.target.value
+    })
+  }
+  handleDecimalClick(op) {
+    this.setState({
+      decimal: op.target.value
+    })
+  }
+  handleEqualClick(op) {
+    this.setState({
+      currentVal: "rezultat"
+    })
+  }
+  
 
   render() {
     return (
       <div className="calculator">
         <Display formula={this.state.formula}/>
         <BottomDisplay currentVal={this.state.currentVal}/>
-        <Buttons numbers={this.handleClick}
-        clear={this.hadleClear} />
+        <Buttons numbers={this.handleNumberClick}
+        clear={this.handleClear} operator={this.handleOperatorClick}
+        decimal={this.handleDecimalClick} equals={this.handleEqualClick}/>
 
 
         
