@@ -8,15 +8,16 @@ class Calculator extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentVal: "0"
+      currentVal: "0",
+      formula: "0"
     }
 
   }
   render() {
     return (
       <div className="calculator">
-        <Display />
-        <BottomDisplay />
+        <Display formula={this.state.formula}/>
+        <BottomDisplay currentVal={this.state.currentVal}/>
         <Buttons />
 
 

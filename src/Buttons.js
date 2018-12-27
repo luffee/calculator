@@ -3,23 +3,23 @@ import React, { Component } from 'react';
 class Buttons extends Component {
     render() {
         return <div>
-            <button className="doubleWide">AC</button>
-            <button>/</button>
-            <button>x</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>-</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>+</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button className="doubleWide">0</button>
-            <button>.</button>
-            <button className="doubleTall">=</button>
+            <button className="doubleWide" value="AC">AC</button>
+            <button value="/">/</button>
+            <button value="x">x</button>
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="-">-</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="+">+</button>
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button className="doubleWide" value="0">0</button>
+            <button value=".">.</button>
+            <button className="doubleTall" value="=">=</button>
         </div>
     }
 }
