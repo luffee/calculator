@@ -52,7 +52,7 @@ class Calculator extends Component {
     // eslint-disable-next-line default-case
     switch (op.target.value) {
       case "+": 
-      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*")) {
         
         this.setState({
           currentVal: op.target.value,
@@ -66,7 +66,7 @@ class Calculator extends Component {
       }
       break;
       case "-": 
-      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*")) {
         
         this.setState({
           currentVal: op.target.value,
@@ -80,7 +80,7 @@ class Calculator extends Component {
       }
       break;
       case "x": 
-      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*")) {
         
         this.setState({
           currentVal: op.target.value,
@@ -94,7 +94,7 @@ class Calculator extends Component {
       }
       break;
       case "/": 
-      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*") && this.state.currentVal.length > 1) {
+      if ((this.state.currentVal === "+" || this.state.currentVal === "-" || this.state.currentVal === "x" || this.state.currentVal === "/" || this.state.currentVal === "*")) {
         
         this.setState({
           currentVal: op.target.value,
