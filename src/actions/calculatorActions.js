@@ -27,3 +27,9 @@ export function operatiorClick(operator) {
         operator
     }
 }
+
+export function clearClick() {
+    return {
+        type: types.CLEAR_CLICK
+    }
+}
