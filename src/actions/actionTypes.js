@@ -1,0 +1,4 @@
+export const NUMBER_CLICK = "NUMBER_CLICK";
+export const OPERATOR_CLICK = "OPERATOR_CLICK";
+export const DECIMAL_CLICK = "DECIMAL_CLICK";
+export const EQUAL_CLICK = "EQUAL_CLICK";
